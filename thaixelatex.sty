@@ -21,52 +21,65 @@
 \newfontfamily\thaifont[
   Script=Thai,
   Scale=MatchLowercase,
-  Extension=.otf,
+%  Extension=.otf,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+%   FakeBold=1.5,
+]{Laksaman}
+\newfontfamily\thaifontsf[
+  Script=Thai,
+  Scale=MatchLowercase,
+%  Extension=.otf,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
 %   FakeBold=1.5,
 ]{Laksaman}
 \newfontfamily\thaifonttt[
-%  Script=Thai,
+  Script=Thai,
   Scale=MatchLowercase,
-  FakeBold=2,
 ]{Arundina Sans Mono}
 \ifenglish
   \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Heros}
   \setmonofont[
     Mapping=,
     Scale=MatchLowercase,
-    Extension=.otf,
-    UprightFont=*zi4-Regular,
+%    Extension=.otf,
     BoldFont=*zi4-Bold,
     AutoFakeSlant
   ]{Inconsolata}
 \else
   \newfontfamily\englishfont{TeX Gyre Termes}
+  \newfontfamily\englishfontsf{TeX Gyre Heros}
   \newfontfamily\englishfonttt[
     Mapping=,
     Scale=MatchLowercase,
-    Extension=.otf,
-    UprightFont=*zi4-Regular,
+%    Extension=.otf,
     BoldFont=*zi4-Bold,
     AutoFakeSlant
   ]{Inconsolata}
 \fi
 
-%% math setup
-\RequirePackage{amsmath}
-\RequirePackage{unicode-math}
-\setmathfont{TeX Gyre Termes Math}
-\setmathfontface\mathrm{TeX Gyre Termes}
-\setmathfontface\mathbf{TeX Gyre Termes Bold}
-\setmathfontface\mathit{TeX Gyre Termes Italic}
+\def\th@fam{0}
+\let\th@textsf=\textsf
+% \let\th@texttt=\texttt
+% \def\textsf#1{\let\th@fam@old=\th@fam\def\th@fam{1}\th@textsf{#1}\def\th@fam{\th@fam@old}}
+% \def\texttt#1{\let\th@fam@old=\th@fam\def\th@fam{2}\th@texttt{#1}\def\th@fam{\th@fam@old}}
+\def\textsf#1{\def\th@fam{1}\th@textsf{#1}\def\th@fam{0}}
+% \def\texttt#1{\def\th@fam{2}\th@texttt{#1}\def\th@fam{0}}
+% \let\th@texttt=\texttt
+% \def\texttt#1{\def\th@fam{2}\th@texttt{#1}\def\th@fam{0}}
 
 \RequirePackage{ifthen}
 \ifenglish
 \else
 \newenvironment{englang}{%
-\ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\textenglish\englishfonttt}{\textenglish}%
+\ifthenelse{\equal{\f@family}{ArundinaSansMono(0)}}{\englishfonttt}{%
+\ifthenelse{\equal{\th@fam}{1}}{\englishfontsf}{%
+\textenglish}%
+}%
 \bgroup%
 }
 {\egroup}
