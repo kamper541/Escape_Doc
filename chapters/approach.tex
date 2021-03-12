@@ -20,13 +20,13 @@
 % \titlespacing*{\section}{0pt}{10ex}{0pt}
 
 \section{Model View Controller (MVC)}
-โครงงานนี้ใช้ design pattern MVC~\cite{mvc}\CIreply{ทำไมเป็นคำว่า ``และ''}แบ่งออกเป็น 3 ส่วนหลักๆ คือ model, view และ controller
+โครงงานนี้ใช้ design pattern MVC~\cite{mvc}\CIreply{ทำไมเป็นคำว่า ``และ''}แบ่งออกเป็น 3 ส่วนหลักๆ คือ model, view และ controller จากรูป
 \begin{figure}
 \begin{center}
 \includegraphics{pic/pic1.jpg}
 \end{center}
 \caption[Poem]{Design Pattern MVC}
-\label{fig:walrus}
+\label{mvc}
 \end{figure}
 
 \subsection{Model}
@@ -39,6 +39,8 @@
 View นั้นทำหน้าที่แค่แสดงผลโดยรับโค้ดคำสั่งมาจาก Model และทำการแสดงผล จากนั้นจะทำการ
 ส่งค่าคืน เพื่อบอก Model ว่าแสดงผลตามเสร็จตามคำสั่งนั้นแล้ว ในส่วนของ View นั้นจะอยู่ใน
 Unity เช่นกัน เพราะ View ใช้แสดงผลกราฟฟิกของ Unity ที่ผู้พัฒนาได้สร้างเอาไว้ เช่น prefabs(รูปแบบสำเร็จ) ต่างๆ
+รวมไปถึงการแสดงหน้า UI ของเกม \par
+
 
 \subsection{Controller}
 Controller จะอยู่ทั้ง 2 ฝั่ง คือทั้ง Unity และ WebView โดย Controller ฝั่งหน้าเว็ปจะเป็นการรอให้ผู้ใช้
@@ -54,5 +56,5 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 \includegraphics{pic/block1.jpg}
 \end{center}
 \caption[Poem]{Google Blockly}
-\label{fig:walrus}
+\label{block}
 \end{figure}
