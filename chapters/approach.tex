@@ -20,7 +20,13 @@
 % \titlespacing*{\section}{0pt}{10ex}{0pt}
 
 \section{Model View Controller (MVC)}
-โครงงานนี้ใช้ design pattern MVC~\cite{mvc}\CIreply{ทำไมเป็นคำว่า ``และ''}แบ่งออกเป็น 3 ส่วนหลักๆ คือ model, view และ controller จากรูป
+โครงงานนี้ใช้ design pattern MVC~\cite{mvc}\CIreply{ทำไมเป็นคำว่า ``และ''}แบ่งออกเป็น 3 ส่วนหลักๆ ดังรูปที่ \ref{mvc} คือ 
+\begin{enumerate}
+    \item Model
+    \item View
+    \item Controller
+\end{enumerate}
+
 \begin{figure}
 \begin{center}
 \includegraphics{pic/pic1.jpg}
@@ -37,9 +43,18 @@
 
 \subsection{View}
 View นั้นทำหน้าที่แค่แสดงผลโดยรับโค้ดคำสั่งมาจาก Model และทำการแสดงผล จากนั้นจะทำการ
-ส่งค่าคืน เพื่อบอก Model ว่าแสดงผลตามเสร็จตามคำสั่งนั้นแล้ว ในส่วนของ View นั้นจะอยู่ใน
-Unity เช่นกัน เพราะ View ใช้แสดงผลกราฟฟิกของ Unity ที่ผู้พัฒนาได้สร้างเอาไว้ เช่น prefabs(รูปแบบสำเร็จ) ต่างๆ
-รวมไปถึงการแสดงหน้า UI ของเกม \par
+ส่งค่าคืน เพื่อบอก Model ว่าแสดงผลตามตามคำสั่งนั้นแล้ว ในส่วนของ View นั้นจะอยู่ใน
+Unity เช่นกัน เพราะ View ใช้แสดงผลกราฟฟิกของ Unity ที่ผู้พัฒนาได้สร้างเอาไว้ เช่น prefabs(รูปแบบสำเร็จ) ต่างๆ ดังรูปที่ \ref{prefabs}
+รวมไปถึงการแสดงหน้า UI ของเกม ซึ่งจะกล่าวถึงในหัวข้อ User Interface\par
+
+\begin{figure}
+    \begin{center}
+    \includegraphics{pic/prefap.PNG}
+    \end{center}
+    \caption[Poem]{ตัวอย่าง prefabs ที่ใช้ }
+    \label{prefabs}
+    \end{figure}
+    
 
 
 \subsection{Controller}
@@ -48,9 +63,74 @@ Controller จะอยู่ทั้ง 2 ฝั่ง คือทั้ง U
 ในรูปของ JSON และจะถูกนำส่งไปให้ Controller ฝั่ง Unity หลักจากนั้น Controller ฝั่ง Unity จะทำการ
 ประมวลผลและแปลงเป็น Object ที่ Unity สามารถอ่านได้เพื่อส่งต่อไปให้ Model
 
+\section{User Interface (UI)}
+User interface (UI) คือ การออกแบบที่เน้นไปที่เรื่องหน้าตา ความสวยงาม และทุกอย่างที่จะเป็นการโต้ตอบกับผู้ใช้งาน UI ที่ดีจะช่วยดึงดูดผู้ใช้งานให้เกิดความสนใจและช่วยให้ผู้ใช้งานเข้าถึงข้อมูลได้ง่าย
+โดยการออกแบบ UI ของเกมนี้พวกเราจะออกแบบเกมแนวตะลุยอวกาศ โดยจะใช้ Asset ที่มีอยู่ใน Unity มาปรับแต่งจัดวางเพื่อความสวยงามและความน่าสนใจ โดยจะมีส่วนต่างๆ ดังนี้ ซึ่งจะแสดงดังรูปต่อไปนี้
+\begin{itemize}
+\item หน้าจอแสดง Mainmenu รูปที่ \ref{mainmenu}
+\item หน้าจอแสดงหน้าเลือกด่าน รูปที่ \ref{stage}
+\item หน้าต่างแสเงเมนูการตั้งค่า รูปที่ \ref{setting}
+\item หน้าจอแสดงหน้า Gameplay รูปที่ \ref{game}
+\item หน้าต่างที่แสดงว่าเราชนะ รูปที่ \ref{win}
+\item หน้าต่างที่แสดงว่าเราแพ้ รูปที่ \ref{lose}
+\end{itemize}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/home_start.PNG}
+\end{center}
+\caption[Poem]{หน้า Mainmenu ของเกม}
+\label{mainmenu}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/stage.PNG}
+\end{center}
+\caption[Poem]{หน้าเลือกด่าน}
+\label{stage}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/setting.PNG}
+\end{center}
+\caption[Poem]{เมนูการตั้งค่า}
+\label{setting}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/gameplay.PNG}
+\end{center}
+\caption[Poem]{หน้า Gameplay}
+\label{game}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/win.PNG}
+\end{center}
+\caption[Poem]{หน้าต่างที่แสดงว่าชนะ}
+\label{win}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.4]{pic/gameover.PNG}
+\end{center}
+\caption[Poem]{หน้าต่าง GameOver}
+\label{lose}
+\end{figure}
+
+
+
 \section{WebView}
-ตัวหน้าเว็ปทำขึ้นมาเพื่อนำ Google Blockly ไปใส่ใน panel ของ Unity เพระาเดิมที Unity ไม่สามารถสร้าง Object ที่หน้าตาและรวมไปถึง function ที่เหมือนกับ Google Blockly ได้ ทางผู้พัฒนาเลยสร้างหน้าเว็ปเข้ามาเพื่อนำไปใส่ใน 
+ตัวหน้าเว็ปทำขึ้นมาเพื่อนำ Google Blockly ไปใส่ใน panel ของ Unity เพราะเดิมที Unity ไม่สามารถสร้าง Object ที่หน้าตาและรวมไปถึง function ที่เหมือนกับ Google Blockly ได้ ทางผู้พัฒนาเลยสร้างหน้าเว็ปเข้ามาเพื่อนำไปใส่ใน 
 panel ของ Unity ที่ใช้ในการแสดงผล Block Code
+
+
 \begin{figure}
 \begin{center}
 \includegraphics{pic/block1.jpg}
@@ -58,3 +138,14 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 \caption[Poem]{Google Blockly}
 \label{block}
 \end{figure}
+
+\section{Text Reader}
+การสร้างด่านของเกมนี้จะ Input ด้วยไฟล์ Text กล่าวคือเมื่อ User ทำการ Input ไฟล์มาตัวระบบเกมจะทำการจัดการสร้างด่านให้เอง
+ทำให้การที่จะสร้างด่านหนึ่งด่านไม่ต้องทานั่งลากวางตัว prefabs บน Unity ตัวอย่างไฟล์ Text คร่าวๆ จากรูป\ref{txt}
+\begin{figure}
+    \begin{center}
+    \includegraphics{pic/text.png}
+    \end{center}
+    \caption[Poem]{Text}
+    \label{txt}
+    \end{figure}
