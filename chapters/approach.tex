@@ -20,11 +20,10 @@
 % \titlespacing*{\section}{0pt}{10ex}{0pt}
 
 \section{User Interface (UI)}
-User interface (UI) คือ การออกแบบที่เน้นไปที่เรื่องหน้าตา ความสวยงาม และทุกอย่างที่จะเป็นการโต้ตอบกับผู้ใช้งาน UI ที่ดีจะช่วยดึงดูดผู้ใช้งานให้เกิดความสนใจและช่วยให้ผู้ใช้งานเข้าถึงข้อมูลได้ง่าย
+User interface (UI) คือ การออกแบบที่เน้นไปที่เรื่องหน้าตา ความสวยงาม และทุกอย่างที่จะเป็นการโต้ตอบกับผู้ใช้งาน โดยจะแสดงการเชื่อมโยงของแต่ละหน้าผ่าน User Flow ดังรูปที่ \ref{userflow} UI ที่ดีจะช่วยดึงดูดผู้ใช้งานให้เกิดความสนใจและช่วยให้ผู้ใช้งานเข้าถึงข้อมูลได้ง่าย
 โดยการออกแบบ UI ของเกมนี้พวกเราจะออกแบบเกมแนวตะลุยไปยังแผนที่ต่างๆที่มีสภาพแวดล้อมแตกต่างกัน โดยจะใช้ Asset ที่มีอยู่ใน Unity มาปรับแต่งจัดวางเพื่อความสวยงามและความน่าสนใจ โดยจะมีส่วนต่างๆ ดังนี้ ซึ่งจะแสดงดังรูปต่อไปนี้
 \begin{itemize}
 \item หน้าจอแสดง Mainmenu รูปที่ \ref{mainmenu}
-\item หน้าต่างแสดงเมนูการตั้งค่า รูปที่ \ref{setting}
 \item หน้าจอแสดงหน้าเลือกแผนที่ รูปที่ \ref{map}
 \item หน้าจอแสดงหน้าเลือกด่าน รูปที่ \ref{stage}
 \item หน้าจอแสดงหน้า Gameplay รูปที่ \ref{game}
@@ -42,20 +41,12 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics{pic/pic1.jpg}
+\includegraphics [scale=.35] {pic/UXflowchart.png}
 \end{center}
-\caption[Design Pattern MVC]{Design Pattern MVC}
-\label{mvc}
+\caption[User Flow]{User Flow}
+\label{userflow}
 \end{figure}
 
-\GBreply{คืออะไร? ทำไมต้องใส่? มองดูละไม่รู้ว่าคือ prefab หรือเอาใส่ใน บท2 หรืออาจจะต้องอธิบายก่อนไหมว่าคืออะไร?}
-\begin{figure}[h!]
-\begin{center}
-\includegraphics{pic/prefap.PNG}
-\end{center}
-\caption[ตัวอย่าง prefabs ที่ใช้]{ตัวอย่าง prefabs ที่ใช้ }
-\label{prefabs}
-\end{figure}
 
 \GBreply{ควรจะเอาขึ้นก่อนไหม? อธิบายด้วย ไม่ใช่ว่าแปะๆๆ อาจจะทำ User Flow ไหม?}
 \begin{figure}[h!]
@@ -66,17 +57,10 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 \label{mainmenu}
 \end{figure}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[scale = 0.4]{pic/setting.PNG}
-\end{center}
-\caption[เมนูการตั้งค่า]{เมนูการตั้งค่า}
-\label{setting}
-\end{figure}
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale = 0.4]{pic/MapSelection.png}
+\includegraphics[scale = 0.5]{pic/MapSelection.png}
 \end{center}
 \caption[หน้าเลือกแผนที่]{หน้าเลือกแผนที่}
 \label{map}
@@ -84,7 +68,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale = 0.4]{pic/LevelSelection1.png}
+\includegraphics[scale = 0.5]{pic/LevelSelection1.png}
 \end{center}
 \caption[หน้าเลือกด่าน]{หน้าเลือกด่าน}
 \label{stage}
@@ -93,7 +77,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale = 0.4]{pic/NewGamePlay.png}
+\includegraphics[scale = 0.5]{pic/NewGamePlay.png}
 \end{center}
 \caption[หน้า Gameplay]{หน้า Gameplay}
 \label{game}
@@ -101,7 +85,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale = 0.4]{pic/Complete.png}
+\includegraphics[scale = 0.5]{pic/Complete.png}
 \end{center}
 \caption[หน้าต่างที่แสดงว่าชนะ]{หน้าต่างที่แสดงว่าชนะ}
 \label{win}
@@ -109,7 +93,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล Block 
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale = 0.4]{pic/GameOver1.png}
+\includegraphics[scale = 0.3]{pic/GameOver1.png}
 \end{center}
 \caption[หน้าต่าง GameOver]{หน้าต่าง GameOver}
 \label{lose}
