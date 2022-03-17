@@ -1,12 +1,39 @@
 \chapter{\ifcpe ทฤษฎีที่เกี่ยวข้อง\else Background Knowledge and Theory\fi}
 
+\section{Model View Controller (MVC)}
+โครงงานนี้ใช้ design pattern MVC~\cite{mvc}\CIreply{ทำไมเป็นคำว่า ``และ''}แบ่งออกเป็น 3 ส่วนหลักๆ ดังรูปที่ \ref{mvc} คือ 
+\begin{enumerate}
+    \item Model
+    \item View
+    \item Controller
+\end{enumerate}
+
+
+\subsection{Model}
+ ในส่วนของ Model จะเป็นการจัดการแปลงจาก Block Code ให้เป็น C\# เพื่อทำให้เกิด Event ต่างๆ เช่นการเดิน, การหมุน
+ และการกระโดด เป็นต้น โดยที่ Model จะรับBlock Code มาจาก Controller ในรูปของ JSON
+ และจะทำการแปลงเป็น C\# เพื่อสั่งให้ view แสดงผลต่างๆ ส่วนของ Model จะอยู่ใน Unity
+ เป็นตัวกลางในการสื่อสารระหว่าง View กับ Controller
+
+\subsection{View}
+View นั้นทำหน้าที่แค่แสดงผลโดยรับโค้ดคำสั่งมาจาก Model และทำการแสดงผล จากนั้นจะทำการ
+ส่งค่าคืน เพื่อบอก Model ว่าแสดงผลตามตามคำสั่งนั้นแล้ว ในส่วนของ View นั้นจะอยู่ใน
+Unity เช่นกัน เพราะ View ใช้แสดงผลกราฟฟิกของ Unity ที่ผู้พัฒนาได้สร้างเอาไว้ เช่น prefabs(รูปแบบสำเร็จ) ต่างๆ ดังรูปที่ \ref{prefabs}
+รวมไปถึงการแสดงหน้า UI ของเกม ซึ่งจะกล่าวถึงในหัวข้อ User Interface\par
+    
+
+\subsection{Controller}
+Controller จะอยู่ทั้ง 2 ฝั่ง คือทั้ง Unity และ WebView โดย Controller ฝั่งหน้าเว็ปจะเป็นการรอให้ผู้ใช้
+ลากวางตัว Block Code และเมื่อผู้ใช้กดรัน Controller ฝั่งหน้าเว็ปจะทำการแปลง Block Code ให้เป็น Object 
+ในรูปของ JSON และจะถูกนำส่งไปให้ Controller ฝั่ง Unity หลักจากนั้น Controller ฝั่ง Unity จะทำการ
+ประมวลผลและแปลงเป็น Object ที่ Unity สามารถอ่านได้เพื่อส่งต่อไปให้ Model
+
+
 \section{ระบบเกม}
-ระบบเกม คือสิ่งที่เป็นระบบที่ให้เกมนั้นทำงานเป็นระบบ 
-ตามที่เราได้ให้คำสั่งกับตัวโปรแกรม 
-โดยการใช้ภาษาของคอมพิวเตอร์ต่างๆ 
+ระบบเกม คือสิ่งที่เป็นระบบที่ให้เกมนั้นทำงานเป็นระบบตามที่เราได้ให้คำสั่งกับตัวโปรแกรมโดยการใช้ภาษาของคอมพิวเตอร์ต่างๆ 
 โดยในที่นี้ กลุ่มโครงงานของพวกเราได้ใช้ภาษา C\#\cite{cs} และ JavaScript\cite{js}
 ในการเขียนระบบเกมขึ้นมา โดยแบ่งเป็น 2 ส่วน ส่วนแรกคือ C\# ใน Unity 
-และ ส่วนที่สองคือ JavaScript ใน WebView(ซึ่งจะกล่าวในหมวดเครื่องมือที่ใช้ในการทำ Blockly ใน Unity) โดยใช้ Firebase ในการ Host\par
+และ ส่วนที่สองคือ JavaScript ใน WebView(ซึ่งจะกล่าวในหมวดเครื่องมือที่ใช้ในการทำ Blockly ใน Unity) โดยใช้ Localhost ในการ Host\par
 
 \subsection{C\#}
 C\# คือ ภาษาคอมพิวเตอร์ประเภท  object-oriented programming พัฒนาโดย
@@ -101,7 +128,7 @@ Blockly เป็นผลิตภัณฑ์ของบริษัทกู
 \section{ความรู้ตามหลักสูตรซึ่งถูกนำมาใช้หรือบูรณาการในโครงงาน}
 \begin{itemize}
   \item รู้จัก Block Code จากการเรียนรู้ในวิชา Basic Computer Engineering รหัสวิชา 261103 ซึ่งได้นำ Block Code มาใช้และเป็นแรงบันดาลใจในการทำโครงงานนี้ขึ้นมา
-  \item ภาษา HTML และ JavaScript ได้รู้จักและเข้าใจพอสมควร จากการเรียนรู้ในวิชา Basic Computer Engineering Lab รหัสวิชา 261207 นำมาใช้กับการเขียนตัว Controller ที่ใช้ควบคุม Block Code ผ่านการ Hosting ด้วย Firebase
+  \item ภาษา HTML และ JavaScript ได้รู้จักและเข้าใจพอสมควร จากการเรียนรู้ในวิชา Basic Computer Engineering Lab รหัสวิชา 261207 นำมาใช้กับการเขียนตัว Controller ที่ใช้ควบคุม Block Code ผ่านการ Hosting ด้วย Localhost
   \item นำหลักการจากวิชา Object-Oriented Programming รหัสวิชา 261200 มาใช้ในการพัฒนาตัวเกมผ่าน Unity
 \end{itemize}
 
