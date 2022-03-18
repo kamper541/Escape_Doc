@@ -22,8 +22,12 @@
 %% Some possible packages to include:
 \usepackage[final]{graphicx} % for including graphics
 
+
 %% Add bookmarks and hyperlinks in the document.
+\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks=true,allcolors=Blue4,citecolor=red,linktoc=all]{hyperref}
+\def\UrlFont{\thaifonttt}
+\normalem
 
 %% Set up commenting
 \iffinal
