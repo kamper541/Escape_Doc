@@ -638,16 +638,16 @@
 \newcounter{@plan@y}
 \newcounter{@plan@colscount}
 \newenvironment{plan}[4]{%
-  \setcounter{@plan@sm}{#1}
-  \setcounter{@plan@sy}{#2}
-  \setcounter{@plan@em}{#3}
-  \setcounter{@plan@ey}{#4}
+  \setcounter{@plan@sm}{#1}%
+  \setcounter{@plan@sy}{#2}%
+  \setcounter{@plan@em}{#3}%
+  \setcounter{@plan@ey}{#4}%
   \def\@plan@numcols{%
-    \stepcounter{@plan@colscount}
+    \stepcounter{@plan@colscount}%
     \ifnum\value{@plan@y}=\value{@plan@ey}%
       \ifnum\value{@plan@m}<\value{@plan@em}%
         \stepcounter{@plan@m}%
-        \@plan@numcols%
+        \@plan@numcols
       \fi
     \else%
       \stepcounter{@plan@m}%
@@ -655,9 +655,9 @@
           \stepcounter{@plan@y}%
           \setcounter{@plan@m}{1}%
       \fi
-      \@plan@numcols%
+      \@plan@numcols
   \fi
-  }
+  }%
   \def\@plan@genheader{%
     &
     \begin{sideways}
@@ -668,7 +668,7 @@
     \ifnum\value{@plan@y}=\value{@plan@ey}%
       \ifnum\value{@plan@m}<\value{@plan@em}%
         \stepcounter{@plan@m}%
-        \@plan@genheader%
+        \@plan@genheader
       \fi
     \else%
       \stepcounter{@plan@m}%
@@ -676,18 +676,18 @@
           \stepcounter{@plan@y}%
           \setcounter{@plan@m}{1}%
       \fi
-      \@plan@genheader%
+      \@plan@genheader
     \fi
-  }
-  \setcounter{@plan@m}{\value{@plan@sm}}
-  \setcounter{@plan@y}{\value{@plan@sy}}
-  \setcounter{@plan@colscount}{0}
+  }%
+  \setcounter{@plan@m}{\value{@plan@sm}}%
+  \setcounter{@plan@y}{\value{@plan@sy}}%
+  \setcounter{@plan@colscount}{0}%
   \@plan@numcols
   \tabularx{\linewidth}{|X|*{\the@plan@colscount}{c|}}
   \hline
   \bf\ifcpe ขั้นตอนการดำเนินงาน\else Task\fi
-  \setcounter{@plan@m}{\value{@plan@sm}}
-  \setcounter{@plan@y}{\value{@plan@sy}}
+  \setcounter{@plan@m}{\value{@plan@sm}}%
+  \setcounter{@plan@y}{\value{@plan@sy}}%
   \@plan@genheader
   \\\hline
 }{%
