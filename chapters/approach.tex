@@ -93,16 +93,74 @@ User interface (UI) คือการออกแบบที่เน้นไ
 
 \section{WebView}
 เป็นตัวหน้าเว็บสำหรับนำ Google Blockly ไปใส่ใน panel ของ Unity เพราะเดิมที Unity ไม่สามารถสร้าง objects ที่มีหน้าตาและ functions เหมือนกับ Google Blockly ได้ ทางผู้พัฒนาจึงสร้างหน้าเว็บเข้ามาเพื่อนำไปใส่ใน 
-panel ของ Unity ที่ใช้ในการแสดงผล block code
+panel ของ Unity ที่ใช้ในการแสดงผล block code โดยใน panel จะประกอบไปด้วย 2 ส่วนหลักๆดังรูปที่~\ref{blocklywebview} โดยมีรายละเอียดดังนี้
+\begin{enumerate}
+    \item ทางด้านซ้ายมือจะเป็นชุดคำสั่งที่สามารถใช้ได้ ซึ่งแบ่งชุดคำสั่งเป็น 4 หมวดหมู่ ดังนี้
+    \begin{itemize}
+        \item หมวดหมู่การเคลื่อนที่ (movement) ดังรูปที่~\ref{movementCat} โดยมีชุดคำสั่งที่สามารถใช้ได้ ดังนี้
+        \begin{itemize}
+            \item เดินไปข้างหน้า (move)
+            \item หมุน (turn)
+            \item ปีน (climb)
+            \item ค่าคงที่ (constant)
+        \end{itemize}
+        \item หมวดหมู่การทำซ้ำ (repeat) ดังรูปที่~\ref{repeatCat} โดยมีชุดคำสั่งที่สามารถใช้ได้ ดังนี้
+        \begin{itemize}
+            \item ทำซ้ำด้วยจำนวนครั้ง (repeat)
+            \item หยุดการทำซ้ำ (break)
+        \end{itemize}
+        \item หมวดหมู่ตัวแปร (variable) ดังรูปที่~\ref{variableCat} โดยมีชุดคำสั่งที่สามารถใช้ได้ ดังนี้
+        \begin{itemize}
+            \item ปุ่มสร้างตัวแปร (create variable)
+            \item ค่าตัวแปร (get variable)
+            \item ตั้งค่าให้ตัวแปร (set variable)
+            \item เพิ่มค่าตัวแปรไป 1 (increase variable by 1)
+            \item ลดค่าตัวแปรไป 1 (decrease variable by 1)
+        \end{itemize}
+        \item หมวดหมู่การกำหนดทางเลือก ถ้าหากเงื่อนไขที่กำหนดไว้เป็นจริง (if-statement) ดังรูปที่~\ref{statementCat} โดยมีชุดคำสั่งที่สามารถใช้ได้ ดังนี้
+        \begin{itemize}
+            \item ถ้าตัวละครเหยียบบนบล็อคสี (if player step on) ให้ทำชุดคำสั่งต่อไปนี้
+        \end{itemize}
+    \end{itemize}
+    \item ทางด้านขวามือจะเป็น workspace ที่ให้ผู้ใช้สามารถลากชุดคำสั่งมาวางได้ภายใต้ชุดคำสั่ง start
+\end{enumerate}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics{pic/CodePanel.png}
-\end{center}
-\caption[Google Blockly]{Google Blockly}
-\label{block}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics{pic-toro/block_category/webpanel.png}
+    \end{center}
+    \caption[Google Blockly]{Google Blockly}
+    \label{blocklywebview}
 \end{figure}
-
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=2in]{pic-toro/block_category/movementCat.png}
+    \end{center}
+    \caption[หมวดหมู่การเคลื่อนที่]{หมวดหมู่การเคลื่อนที่}
+    \label{movementCat}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=2in]{pic-toro/block_category/repeatCat.png}
+    \end{center}
+    \caption[หมวดหมู่การทำซ้ำ]{หมวดหมู่การทำซ้ำ}
+    \label{repeatCat}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=2in]{pic-toro/block_category/variableCat.png}
+    \end{center}
+    \caption[หมวดหมู่ตัวแปร]{หมวดหมู่ตัวแปร}
+    \label{variableCat}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=2in]{pic-toro/block_category/statementCat.png}
+    \end{center}
+    \caption[หมวดหมู่การกำหนดทางเลือก]{หมวดหมู่การกำหนดทางเลือก}
+    \label{statementCat}
+\end{figure}
+\clearpage
 
 \section{Text reader}
 ด่านต่างๆ ของเกมนี้จะถูกระบุเป็น input ด้วยไฟล์ text สองชุด ประกอบไปด้วย text สำหรับแสดงผลของด่าน และ text สำหรับระบุว่าตำแหน่งใดสามารถไปได้หรือไม่ได้ กล่าวคือ เมื่อ user ทำการ input ไฟล์มา ตัวระบบเกมจะทำการจัดการสร้างด่านให้เอง
@@ -132,7 +190,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล block 
     \end{itemize}
 \end{enumerate}
 รูปที่~\ref{ft1} แสดงตัวอย่างของไฟล์ text แสดงผลด่าน
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=1in]{pic-toro/filetext2.png}
     \end{center}
@@ -156,7 +214,7 @@ panel ของ Unity ที่ใช้ในการแสดงผล block 
 \end{enumerate}
 การที่มีไฟล์ text ดังกล่าวทำให้เราสามารถตรวจสอบผลแพ้ชนะได้ โดยนำชุดคำสั่งที่ผู้ใช้ป้อนเข้ามา มาร่วมประมวลผล หากผู้ใช้ไปเหยียบจุดที่เป็น 0
 หรือตำแหน่งสุดท้ายของผู้เล่นไม่ใช่ G ก็จะแพ้ทันที รูปที่~\ref{ft2} แสดงตัวอย่างของไฟล์ text สำหรับบอกจุดที่สามารถไปได้
-\begin{figure}[h!]
+\begin{figure}[H]
     \begin{center}
     \includegraphics[width=1in]{pic-toro/filetext1.png}
     \end{center}
